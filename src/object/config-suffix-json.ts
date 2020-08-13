@@ -21,5 +21,5 @@ export default function ConfigSuffixJson(
     reviver?: (this: any, key: string, value: any) => any
 ) : object {
 
-    return ConfigSuffix(file, suffix, (data) => Json(data, reviver))
+    return ConfigSuffix(file, suffix, (data : string) => JSON.parse(data, reviver))
 }

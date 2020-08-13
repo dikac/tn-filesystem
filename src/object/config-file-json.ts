@@ -21,6 +21,6 @@ export default function ConfigFileJson(
     reviver?: (this: any, key: string, value: any) => any
 ) : object {
 
-    return ConfigFile(file, example, (data) => Json(data, reviver))
+    return ConfigFile(file, example, (data : string) => JSON.parse(data, reviver))
 
 }

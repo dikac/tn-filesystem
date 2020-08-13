@@ -20,7 +20,7 @@ export default function ConfigDirectory(
     directory : PathLike,
     file : PathLike,
     example : PathLike,
-    parser : (file : PathLike) => object
+    parser : (file : string) => object
 ) : object {
 
     return ConfigFile(

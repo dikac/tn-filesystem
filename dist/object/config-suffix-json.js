@@ -4,12 +4,11 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./json", "./config-suffix"], factory);
+        define(["require", "exports", "./config-suffix"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const json_1 = require("./json");
     const config_suffix_1 = require("./config-suffix");
     /**
      * Wrapper for {@link ConfigFile} for json
@@ -24,7 +23,7 @@
      * json parse reviver
      */
     function ConfigSuffixJson(file, suffix, reviver) {
-        return config_suffix_1.default(file, suffix, (data) => json_1.default(data, reviver));
+        return config_suffix_1.default(file, suffix, (data) => JSON.parse(data, reviver));
     }
     exports.default = ConfigSuffixJson;
 });

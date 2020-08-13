@@ -11,4 +11,4 @@ import { PathLike } from "fs";
  *
  * @param parser
  */
-export default function ConfigSuffix(file: PathLike, suffix: PathLike, parser: (file: PathLike) => object): object;
+export default function ConfigSuffix(file: PathLike, suffix: PathLike, parser: (file: string) => object): object;

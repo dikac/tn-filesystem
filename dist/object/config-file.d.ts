@@ -13,4 +13,4 @@ import { PathLike } from "fs";
  * @param parser
  * parser to convert string to object
  */
-export default function ConfigFile(file: PathLike, example: PathLike, parser: (file: PathLike) => object): object;
+export default function ConfigFile(file: PathLike, example: PathLike, parser: (file: string) => object): object;

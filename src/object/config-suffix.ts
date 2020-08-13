@@ -15,7 +15,7 @@ import ConfigFile from "./config-file";
 export default function ConfigSuffix(
     file : PathLike,
     suffix : PathLike,
-    parser : (file : PathLike) => object
+    parser : (file : string) => object
 ) : object {
 
     return ConfigFile(file, file.toString() + suffix.toString(), parser)

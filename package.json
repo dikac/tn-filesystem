@@ -1,6 +1,6 @@
 {
   "name": "@dikac/tn-filesystem",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "typescript node file system",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",

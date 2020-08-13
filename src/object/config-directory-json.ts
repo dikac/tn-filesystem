@@ -29,6 +29,6 @@ export default function ConfigDirectoryJson(
         directory,
         file,
         example,
-        (data) => Json(data, reviver)
+        (data : string) => JSON.parse(data, reviver)
     );
 }

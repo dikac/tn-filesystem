@@ -1,4 +1,5 @@
 import {copyFileSync, existsSync, PathLike} from "fs";
+import Parser from "./parse";
 
 /**
  * load and parse config file, if {@param file} is not exists {@param example} will be used
@@ -16,15 +17,15 @@ import {copyFileSync, existsSync, PathLike} from "fs";
 export default function ConfigFile(
     file : PathLike,
     example : PathLike,
-    parser : (file : PathLike) => object
+    parser : (file : string) => object
 ) : object {
 
     if(existsSync(file)) {
 
-        return parser(file);
+        return Parser(file, parser);
     }
 
-    let object = parser(example);
+    let object = Parser(example, parser);
     copyFileSync(example, file);
     return object;
 

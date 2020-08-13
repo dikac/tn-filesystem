@@ -1,6 +1,5 @@
 import {PathLike} from "fs";
 import ConfigFile from "./config-file";
-import Json from "./json";
 import ConfigSuffix from "./config-suffix";
 
 /**
@@ -18,7 +17,7 @@ import ConfigSuffix from "./config-suffix";
 export default function ConfigSuffixJson(
     file : PathLike,
     suffix : PathLike,
-    reviver?: (this: any, key: string, value: any) => any
+    reviver ?: Parameters<typeof JSON.parse>[1]
 ) : object {
 
     return ConfigSuffix(file, suffix, (data : string) => JSON.parse(data, reviver))

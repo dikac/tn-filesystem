@@ -1,5 +1,4 @@
 import {PathLike} from "fs";
-import Json from "./json";
 import ConfigDirectory from "./config-directory";
 
 /**
@@ -22,7 +21,7 @@ export default function ConfigDirectoryJson(
     directory : PathLike,
     file : PathLike,
     example : PathLike,
-    reviver?: (this: any, key: string, value: any) => any
+    reviver ?: Parameters<typeof JSON.parse>[1]
 ) : object {
 
     return ConfigDirectory(

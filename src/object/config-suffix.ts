@@ -1,5 +1,6 @@
 import {PathLike} from "fs";
 import ConfigFile from "./config-file";
+import Function from "@dikac/t-function/function-single";
 
 /**
  * Wrapper for {@link ConfigFile}
@@ -15,7 +16,7 @@ import ConfigFile from "./config-file";
 export default function ConfigSuffix(
     file : PathLike,
     suffix : PathLike,
-    parser : (file : string) => object
+    parser : Function<string, object>
 ) : object {
 
     return ConfigFile(file, file.toString() + suffix.toString(), parser)

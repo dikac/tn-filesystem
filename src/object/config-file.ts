@@ -1,5 +1,6 @@
 import {copyFileSync, existsSync, PathLike} from "fs";
 import Parser from "./parse";
+import Function from "@dikac/t-function/function-single";
 
 /**
  * load and parse config file, if {@param file} is not exists {@param example} will be used
@@ -17,7 +18,7 @@ import Parser from "./parse";
 export default function ConfigFile(
     file : PathLike,
     example : PathLike,
-    parser : (file : string) => object
+    parser : Function<string, object>
 ) : object {
 
     if(existsSync(file)) {

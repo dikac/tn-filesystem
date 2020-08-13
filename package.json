@@ -1,10 +1,10 @@
 {
   "name": "@dikac/tn-filesystem",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "typescript node file system",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",
-    "@dikac/t-function": "^0.11.4",
+    "@dikac/t-function": "^0.11.5",
     "@types/node": "^14.0.27"
   },
   "devDependencies": {
@@ -26,10 +26,12 @@
     "spec-run": "jasmine --reporter=jasmine-ts-console-reporter --config=./jasmine.json",
     "spec": "npm-run-all spec-compile spec-run",
     "spec-ensure-directory": "mkdirp dist-spec",
-    "spec-compile": "npm-run-all spec-compile-script spec-cleanup",
-    "spec-compile-watch": "npm-run-all --sequential spec-ensure-directory --parallel spec-compile-watch-script spec-cleanup-watch",
+    "spec-compile": "npm-run-all spec-compile-script spec-cleanup spec-asset",
+    "spec-compile-watch": "npm-run-all --sequential spec-ensure-directory --parallel spec-compile-watch-script spec-cleanup-watch spec-asset-watch",
     "spec-compile-script": "tsc -p tsconfig-spec.json",
     "spec-compile-watch-script": "tsc -w -p tsconfig-spec.json",
+    "spec-asset-watch": "cpx \"spec/**/*.{json-example,json,txt}\" dist-spec/ --watch --verbose",
+    "spec-asset": "cpx \"spec/**/*.{json-example,json,txt}\" dist-spec/ --verbose",
     "compile-script": "tsc",
     "compile": "npm-run-all compile-script cleanup",
     "cleanup": "ts-cleaner --verbose --dist=dist --src=src",

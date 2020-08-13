@@ -7,7 +7,7 @@ it("enable console log", () => {spyOn(console, 'log').and.callThrough()});
 
 describe('destination not exists', ()=>{
 
-    let target = __dirname + '/../example.json';
+    let target = __dirname + '/example.json';
 
     it(`remove destination`, () => {
 
@@ -48,7 +48,7 @@ describe('destination not exists', ()=>{
 
 it(`both exists`, () => {
 
-    let object = ConfigSuffix(__dirname + '/../exists.json', '-example');
+    let object = ConfigSuffix(__dirname + '/exists.json', '-example');
     expect(Example(object)).toBeTrue();
 
     if(Example(object)) {
@@ -62,7 +62,7 @@ it(`dest exists, invalid`, () => {
 
     try {
 
-        let object = ConfigSuffix(__dirname + '/../invalid.json', '-example');
+        let object = ConfigSuffix(__dirname + '/invalid.json', '-example');
         fail('exception should thrown');
 
     } catch (e) {
@@ -76,7 +76,7 @@ it(`source exists, invalid`, () => {
 
     try {
 
-        let object = ConfigSuffix(__dirname + '/../invalid-2.json', '-example');
+        let object = ConfigSuffix(__dirname + '/invalid-2.json', '-example');
         fail('exception should thrown');
 
     } catch (e) {
@@ -90,7 +90,7 @@ it(`not exists`, () => {
 
     try {
 
-        let object = ConfigSuffix(__dirname + '/../not-exists.json' , '-example');
+        let object = ConfigSuffix(__dirname + '/not-exists.json' , '-example');
         fail('exception should thrown');
 
     } catch (e) {

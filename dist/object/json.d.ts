@@ -9,4 +9,4 @@ import { PathLike } from "fs";
  * @param reviver
  * json parse reviver
  */
-export default function Json(file: PathLike, reviver?: (this: any, key: string, value: any) => any): object;
+export default function Json(file: PathLike, reviver?: Parameters<typeof JSON.parse>[1]): object;

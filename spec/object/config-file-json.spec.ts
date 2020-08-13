@@ -7,8 +7,8 @@ it("enable console log", () => {spyOn(console, 'log').and.callThrough()});
 
 describe('destination not exists', ()=>{
 
-    let target = __dirname + '/../example.json';
-    let source = __dirname + '/../example.json-example';
+    let target = __dirname + '/example.json';
+    let source = __dirname + '/example.json-example';
 
     it(`remove destination`, () => {
 
@@ -49,7 +49,7 @@ describe('destination not exists', ()=>{
 
 it(`both exists`, () => {
 
-    let object = ConfigFile(__dirname + '/../exists.json', '-example');
+    let object = ConfigFile(__dirname + '/exists.json', '-example');
     expect(Example(object)).toBeTrue();
 
     if(Example(object)) {
@@ -63,7 +63,7 @@ it(`dest exists, invalid`, () => {
 
     try {
 
-        let object = ConfigFile(__dirname + '/../invalid.json', __dirname + '/../invalid.json');
+        let object = ConfigFile(__dirname + '/invalid.json', __dirname + '/invalid.json');
         fail('exception should thrown');
 
     } catch (e) {
@@ -77,7 +77,7 @@ it(`source exists, invalid`, () => {
 
     try {
 
-        let object = ConfigFile(__dirname + '/../invalid-2.json', __dirname + '/../invalid-2.json');
+        let object = ConfigFile(__dirname + '/invalid-2.json', __dirname + '/invalid-2.json');
         fail('exception should thrown');
 
     } catch (e) {
@@ -91,7 +91,7 @@ it(`not exists`, () => {
 
     try {
 
-        let object = ConfigFile(__dirname + '/../not-exists.json' , __dirname + '/../not-exists.json');
+        let object = ConfigFile(__dirname + '/not-exists.json' , __dirname + '/not-exists.json');
         fail('exception should thrown');
 
     } catch (e) {

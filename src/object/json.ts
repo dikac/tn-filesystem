@@ -12,7 +12,7 @@ import Parser from "./parse";
  */
 export default function Json(
     file : PathLike,
-    reviver?: (this: any, key: string, value: any) => any
+    reviver ?: Parameters<typeof JSON.parse>[1]
 ) : object {
 
     return Parser(file, (data : string) => JSON.parse(data, reviver))

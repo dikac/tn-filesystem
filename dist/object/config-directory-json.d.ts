@@ -15,4 +15,4 @@ import { PathLike } from "fs";
  * @param reviver
  * json parse reviver
  */
-export default function ConfigDirectoryJson(directory: PathLike, file: PathLike, example: PathLike, reviver?: (this: any, key: string, value: any) => any): object;
+export default function ConfigDirectoryJson(directory: PathLike, file: PathLike, example: PathLike, reviver?: Parameters<typeof JSON.parse>[1]): object;

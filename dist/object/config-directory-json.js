@@ -4,14 +4,15 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./config-file"], factory);
+        define(["require", "exports", "./json", "./config-directory"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const config_file_1 = require("./config-file");
+    const json_1 = require("./json");
+    const config_directory_1 = require("./config-directory");
     /**
-     * Wrapper for {@link ConfigFile}
+     * Wrapper for {@link ConfigDirectory} for json
      *
      * @param directory
      * base absolute directory
@@ -22,12 +23,12 @@
      * @param example
      * example file, appended with {@param directory}
      *
-     * @param parser
-     * parser to convert string to object
+     * @param reviver
+     * json parse reviver
      */
-    function ConfigDirectory(directory, file, example, parser) {
-        return config_file_1.default(directory.toString() + file.toString(), directory.toString() + example.toString(), parser);
+    function ConfigDirectoryJson(directory, file, example, reviver) {
+        return config_directory_1.default(directory, file, example, (data) => json_1.default(data, reviver));
     }
-    exports.default = ConfigDirectory;
+    exports.default = ConfigDirectoryJson;
 });
-//# sourceMappingURL=config-directory.js.map
+//# sourceMappingURL=config-directory-json.js.map

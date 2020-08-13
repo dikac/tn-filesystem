@@ -4,17 +4,23 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "fs", "../assert/exists"], factory);
+        define(["require", "exports", "./parse"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    const fs_1 = require("fs");
-    const exists_1 = require("../assert/exists");
+    const parse_1 = require("./parse");
+    /**
+     * wrapper for {@link Parser} for json
+     *
+     * @param file
+     * absolute path json file location
+     *
+     * @param reviver
+     * json parse reviver
+     */
     function Json(file, reviver) {
-        exists_1.default(file);
-        let buffer = fs_1.readFileSync(file);
-        return JSON.parse(buffer.toString(), reviver);
+        return parse_1.default(file, (data) => JSON.parse(data, reviver));
     }
     exports.default = Json;
 });

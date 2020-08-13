@@ -1,7 +1,22 @@
 import {PathLike} from "fs";
 import ConfigFile from "./config-file";
 
-export default function Config(file : PathLike, suffix : PathLike) : object {
+/**
+ * Wrapper for {@link ConfigFile}
+ *
+ * @param file
+ * absolute path of config file
+ *
+ * @param suffix
+ * example suffix to be appended to {@param file}
+ *
+ * @param parser
+ */
+export default function ConfigSuffix(
+    file : PathLike,
+    suffix : PathLike,
+    parser : (file : PathLike) => object
+) : object {
 
-    return ConfigFile(file, file.toString() + suffix.toString())
+    return ConfigFile(file, file.toString() + suffix.toString(), parser)
 }

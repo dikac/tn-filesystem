@@ -1,16 +1,30 @@
 import {copyFileSync, existsSync, PathLike} from "fs";
-import {execSync} from "child_process";
-import Json from "./json";
-import AssertExists from "../assert/exists";
 
-export default function ConfigFile(file : PathLike, example : PathLike) : object {
+/**
+ * load and parse config file, if {@param file} is not exists {@param example} will be used
+ * for sources and copied to {@param file}
+ *
+ * @param file
+ * absolute path of config file
+ *
+ * @param example
+ * absolute path of config example file
+ *
+ * @param parser
+ * parser to convert string to object
+ */
+export default function ConfigFile(
+    file : PathLike,
+    example : PathLike,
+    parser : (file : PathLike) => object
+) : object {
 
     if(existsSync(file)) {
 
-        return Json(file);
+        return parser(file);
     }
 
-    let object = Json(example);
+    let object = parser(example);
     copyFileSync(example, file);
     return object;
 

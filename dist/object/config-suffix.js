@@ -10,9 +10,20 @@
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const config_file_1 = require("./config-file");
-    function Config(file, suffix) {
-        return config_file_1.default(file, file.toString() + suffix.toString());
+    /**
+     * Wrapper for {@link ConfigFile}
+     *
+     * @param file
+     * absolute path of config file
+     *
+     * @param suffix
+     * example suffix to be appended to {@param file}
+     *
+     * @param parser
+     */
+    function ConfigSuffix(file, suffix, parser) {
+        return config_file_1.default(file, file.toString() + suffix.toString(), parser);
     }
-    exports.default = Config;
+    exports.default = ConfigSuffix;
 });
 //# sourceMappingURL=config-suffix.js.map

@@ -1,0 +1,34 @@
+import {PathLike} from "fs";
+import Json from "./json";
+import ConfigDirectory from "./config-directory";
+
+/**
+ * Wrapper for {@link ConfigDirectory} for json
+ *
+ * @param directory
+ * base absolute directory
+ *
+ * @param file
+ * config file, appended with {@param directory}
+ *
+ * @param example
+ * example file, appended with {@param directory}
+ *
+ * @param reviver
+ * json parse reviver
+ */
+
+export default function ConfigDirectoryJson(
+    directory : PathLike,
+    file : PathLike,
+    example : PathLike,
+    reviver?: (this: any, key: string, value: any) => any
+) : object {
+
+    return ConfigDirectory(
+        directory,
+        file,
+        example,
+        (data) => Json(data, reviver)
+    );
+}

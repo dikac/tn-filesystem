@@ -4,18 +4,30 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "fs", "./json"], factory);
+        define(["require", "exports", "fs"], factory);
     }
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     const fs_1 = require("fs");
-    const json_1 = require("./json");
-    function ConfigFile(file, example) {
+    /**
+     * load and parse config file, if {@param file} is not exists {@param example} will be used
+     * for sources and copied to {@param file}
+     *
+     * @param file
+     * absolute path of config file
+     *
+     * @param example
+     * absolute path of config example file
+     *
+     * @param parser
+     * parser to convert string to object
+     */
+    function ConfigFile(file, example, parser) {
         if (fs_1.existsSync(file)) {
-            return json_1.default(file);
+            return parser(file);
         }
-        let object = json_1.default(example);
+        let object = parser(example);
         fs_1.copyFileSync(example, file);
         return object;
     }

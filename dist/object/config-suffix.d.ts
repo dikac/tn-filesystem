@@ -1,3 +1,14 @@
 /// <reference types="node" />
 import { PathLike } from "fs";
-export default function Config(file: PathLike, suffix: PathLike): object;
+/**
+ * Wrapper for {@link ConfigFile}
+ *
+ * @param file
+ * absolute path of config file
+ *
+ * @param suffix
+ * example suffix to be appended to {@param file}
+ *
+ * @param parser
+ */
+export default function ConfigSuffix(file: PathLike, suffix: PathLike, parser: (file: PathLike) => object): object;

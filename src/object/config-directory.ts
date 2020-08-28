@@ -1,6 +1,5 @@
 import {PathLike} from "fs";
 import ConfigFile from "./config-file";
-import Function from "@dikac/t-function/function-single";
 
 /**
  * Wrapper for {@link ConfigFile}
@@ -21,7 +20,7 @@ export default function ConfigDirectory(
     directory : PathLike,
     file : PathLike,
     example : PathLike,
-    parser : Function<string, object>
+    parser : (content:string)=>object
 ) : object {
 
     return ConfigFile(

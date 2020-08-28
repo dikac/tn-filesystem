@@ -1,6 +1,5 @@
 /// <reference types="node" />
 import { PathLike } from "fs";
-import Function from "@dikac/t-function/function-single";
 /**
  * Parse file to object
  *
@@ -10,4 +9,4 @@ import Function from "@dikac/t-function/function-single";
  * @param parser
  * parser to convert string to object
  */
-export default function Parser(file: PathLike, parser: Function<string, object>): object;
+export default function Parser(file: PathLike, parser: (content: string) => object): object;

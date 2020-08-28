@@ -1,6 +1,5 @@
 import {PathLike, readFileSync} from "fs";
 import AssertExists from "../assert/exists";
-import Function from "@dikac/t-function/function-single";
 
 /**
  * Parse file to object
@@ -13,7 +12,7 @@ import Function from "@dikac/t-function/function-single";
  */
 export default function Parser(
     file : PathLike,
-    parser : Function<string, object>
+    parser : (content:string)=>object
 ) : object {
 
     AssertExists(file);

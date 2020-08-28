@@ -1,6 +1,5 @@
 /// <reference types="node" />
 import { PathLike } from "fs";
-import Function from "@dikac/t-function/function-single";
 /**
  * Wrapper for {@link ConfigFile}
  *
@@ -12,4 +11,4 @@ import Function from "@dikac/t-function/function-single";
  *
  * @param parser
  */
-export default function ConfigSuffix(file: PathLike, suffix: PathLike, parser: Function<string, object>): object;
+export default function ConfigSuffix(file: PathLike, suffix: PathLike, parser: (content: string) => object): object;

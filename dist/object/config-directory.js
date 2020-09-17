@@ -1,33 +1,20 @@
-(function (factory) {
-    if (typeof module === "object" && typeof module.exports === "object") {
-        var v = factory(require, exports);
-        if (v !== undefined) module.exports = v;
-    }
-    else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "./config-file"], factory);
-    }
-})(function (require, exports) {
-    "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    const config_file_1 = require("./config-file");
-    /**
-     * Wrapper for {@link ConfigFile}
-     *
-     * @param directory
-     * base absolute directory
-     *
-     * @param file
-     * config file, appended with {@param directory}
-     *
-     * @param example
-     * example file, appended with {@param directory}
-     *
-     * @param parser
-     * parser to convert string to object
-     */
-    function ConfigDirectory(directory, file, example, parser) {
-        return config_file_1.default(directory.toString() + file.toString(), directory.toString() + example.toString(), parser);
-    }
-    exports.default = ConfigDirectory;
-});
+import ConfigFile from "./config-file";
+/**
+ * Wrapper for {@link ConfigFile}
+ *
+ * @param directory
+ * base absolute directory
+ *
+ * @param file
+ * config file, appended with {@param directory}
+ *
+ * @param example
+ * example file, appended with {@param directory}
+ *
+ * @param parser
+ * parser to convert string to object
+ */
+export default function ConfigDirectory(directory, file, example, parser) {
+    return ConfigFile(directory.toString() + file.toString(), directory.toString() + example.toString(), parser);
+}
 //# sourceMappingURL=config-directory.js.map

@@ -1,10 +1,10 @@
 {
   "name": "@dikac/tn-filesystem",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "typescript node file system",
   "dependencies": {
     "@dikac/deployer": "^0.1.5",
-    "@dikac/t-function": "^0.14.0",
+    "@dikac/t-function": "^0.14.1",
     "@types/node": "12.12.59"
   },
   "devDependencies": {
